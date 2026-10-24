@@ -38,15 +38,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['slot_id'])) {
     }
 }
 
-// // 2. Fetch Future Slots (Optional Date Filter)
-// $dateFilter = $_GET['date'] ?? '';
-// if ($dateFilter !== '') {
-//     $stmt = $pdo->prepare("SELECT * FROM time_slots WHERE slot_date = ? AND TIMESTAMP(slot_date, start_time) > NOW() ORDER BY slot_date, start_time");
-//     $stmt->execute([$dateFilter]);
-// } else {
-//     $stmt = $pdo->query("SELECT * FROM time_slots WHERE TIMESTAMP(slot_date, start_time) > NOW() ORDER BY slot_date, start_time");
-// }
-// $slots = $stmt->fetchAll(PDO::FETCH_ASSOC);
+// fetch future Slots
+$dateFilter = $_GET['date'] ?? '';
+if ($dateFilter !== '') {
+    $stmt = $pdo->prepare("SELECT * FROM time_slots WHERE slot_date = ? AND TIMESTAMP(slot_date, start_time) > NOW() ORDER BY slot_date, start_time");
+    $stmt->execute([$dateFilter]);
+} else {
+    $stmt = $pdo->query("SELECT * FROM time_slots WHERE TIMESTAMP(slot_date, start_time) > NOW() ORDER BY slot_date, start_time");
+}
+$slots = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
 
