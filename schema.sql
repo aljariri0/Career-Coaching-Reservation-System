@@ -33,3 +33,8 @@ INSERT INTO time_slots (slot_date, start_time, end_time, capacity) VALUES
 (DATE_ADD(CURDATE(), INTERVAL 1 DAY), '10:00:00', '11:00:00', 3),
 (DATE_ADD(CURDATE(), INTERVAL 1 DAY), '14:00:00', '15:00:00', 2),
 (DATE_ADD(CURDATE(), INTERVAL 2 DAY), '11:00:00', '12:00:00', 1);
+
+
+INSERT INTO users (name, email, password, role, is_active) VALUES
+('Issa', 'issa@mail.com', '$2y$10$a6RFDeJkgUGwl1JsBX3qouDljZwt9GHz5K70KFaDRzEKf63xvQ6iW', 'user', 1)
+ON DUPLICATE KEY UPDATE password = VALUES(password), role = 'user', is_active = 1;
