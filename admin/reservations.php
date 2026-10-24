@@ -7,7 +7,7 @@ checkAdmin($pdo);
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['res_id'], $_POST['status'])) {
     $upd = $pdo->prepare("UPDATE reservations SET status = ? WHERE id = ?");
     $upd->execute([$_POST['status'], (int) $_POST['res_id']]);
-    header("Location: admin/reservations.php");
+    header("Location: reservations.php");
     exit;
 }
 
