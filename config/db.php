@@ -30,25 +30,24 @@ function checkAdmin($pdo)
 }
 
 // navbar
-function showNav()
+function showNav($root = '')
 {
     echo '<nav class="navbar"><div class="nav-inner">';
     echo '<strong>Career Coaching</strong><div>';
     if (isset($_SESSION['user_id'])) {
         if ($_SESSION['role'] === 'admin') {
-            echo '<a href="admin_dashboard.php">Dashboard</a>';
-            echo '<a href="admin_reservations.php">Reservations</a>';
-            echo '<a href="admin_slots.php">Time Slots</a>';
-            echo '<a href="admin_users.php">Users</a>';
+            echo '<a href="' . $root . 'admin/dashboard.php">Dashboard</a>';
+            echo '<a href="' . $root . 'admin/reservations.php">Reservations</a>';
+            echo '<a href="' . $root . 'admin/slots.php">Time Slots</a>';
+            echo '<a href="' . $root . 'admin/users.php">Users</a>';
         } else {
-            echo '<a href="index.php">Available Slots</a>';
-            echo '<a href="my_reservations.php">My Reservations</a>';
+            echo '<a href="' . $root . 'index.php">Available Slots</a>';
+            echo '<a href="' . $root . 'my_reservations.php">My Reservations</a>';
         }
-        echo '<a href="logout.php">Logout (' . htmlspecialchars($_SESSION['name']) . ')</a>';
-    }
-    else {
-        echo '<a href="login.php">Login</a>';
-        echo '<a href="register.php">Register</a>';
+        echo '<a href="' . $root . 'logout.php">Logout (' . htmlspecialchars($_SESSION['name']) . ')</a>';
+    } else {
+        echo '<a href="' . $root . 'login.php">Login</a>';
+        echo '<a href="' . $root . 'register.php">Register</a>';
     }
     echo '</div></div></nav>';
 }

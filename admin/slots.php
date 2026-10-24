@@ -46,7 +46,7 @@ $slots = $pdo->query("SELECT * FROM time_slots ORDER BY slot_date, start_time")-
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Manage Time Slots</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 
 <body>
