@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-$pdo = new PDO("mysql:host=127.0.0.1;dbname=coaching_db;charset=utf8mb4", "root", "");
+$pdo = new PDO("mysql:host=localhost;dbname=coaching_db;charset=utf8mb4", "root", "");
 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 function checkLogin($pdo)

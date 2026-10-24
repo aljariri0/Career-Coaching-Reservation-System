@@ -1,6 +1,6 @@
 <?php
 
-require 'db.php';
+require 'config/db.php';
 $msg = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_SESSION['role'] = $user['role'];
 
         if ($user['role'] === 'admin') {
-            header("Location: admin_dashboard.php");
+            header("Location: admin/admin_dashboard.php");
         } else {
             header("Location: index.php");
         }
@@ -35,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Login</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body>
