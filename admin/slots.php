@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_slot'])) {
     if ($cap > 0 && $end > $start) {
         $stmt = $pdo->prepare("INSERT INTO time_slots (slot_date, start_time, end_time, capacity) VALUES (?, ?, ?, ?)");
         $stmt->execute([$date, $start, $end, $cap]);
-        header("Location: admin_slots.php");
+        header("Location: admin/slots.php");
         exit;
     } else {
         $msg = "Invalid time range or capacity.";
@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_id'])) {
     } else {
         $pdo->prepare("DELETE FROM reservations WHERE slot_id = ?")->execute([$delId]);
         $pdo->prepare("DELETE FROM time_slots WHERE id = ?")->execute([$delId]);
-        header("Location: admin_slots.php");
+        header("Location: admin/slots.php");
         exit;
     }
 }
