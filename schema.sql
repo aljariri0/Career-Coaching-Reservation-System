@@ -28,7 +28,7 @@ CREATE TABLE reservations (
     FOREIGN KEY (slot_id) REFERENCES time_slots(id) ON DELETE RESTRICT
 );
 
--- Sample future coaching slots
+-- Sample  
 INSERT INTO time_slots (slot_date, start_time, end_time, capacity) VALUES
 (DATE_ADD(CURDATE(), INTERVAL 1 DAY), '10:00:00', '11:00:00', 3),
 (DATE_ADD(CURDATE(), INTERVAL 1 DAY), '14:00:00', '15:00:00', 2),
