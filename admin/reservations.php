@@ -45,7 +45,7 @@ $reservations = $stmt->fetchAll(PDO::FETCH_ASSOC);
 </head>
 
 <body>
-    <?php showNav(); ?>
+    <?php showNav('../'); ?>
     <div class="container">
         <h2>Manage Reservations</h2>
 

@@ -21,7 +21,7 @@ $users = $pdo->query("SELECT COUNT(*) FROM users WHERE role = 'user'")->fetchCol
 </head>
 
 <body>
-    <?php showNav(); ?>
+    <?php showNav('../'); ?>
     <div class="container">
         <h2>Admin Dashboard</h2>
         <div class="grid">

@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['user_id'])) {
         $stmt = $pdo->prepare("UPDATE users SET is_active = IF(is_active = 1, 0, 1) WHERE id = ?");
         $stmt->execute([$uid]);
     }
-    header("Location: admin_users.php");
+    header("Location: users.php");
     exit;
 }
 
@@ -25,7 +25,7 @@ $users = $pdo->query("SELECT * FROM users ORDER BY id DESC")->fetchAll(PDO::FETC
 </head>
 
 <body>
-    <?php showNav(); ?>
+    <?php showNav('../'); ?>
     <div class="container">
         <h2>Manage Users</h2>
         <table>

@@ -50,7 +50,7 @@ $slots = $pdo->query("SELECT * FROM time_slots ORDER BY slot_date, start_time")-
 </head>
 
 <body>
-    <?php showNav(); ?>
+    <?php showNav('../'); ?>
     <div class="container">
         <h2>Manage Time Slots</h2>
         <?php if ($msg): ?>
